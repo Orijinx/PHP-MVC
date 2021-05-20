@@ -1,29 +1,17 @@
 <?php
 namespace vendor\Model;
 
-class Sales{
-    //Поля класса
-    public $id=0;
-    public $NameClient=NULL;
-    public $Period=NULL;
-    public $Sum=NULL;
+use vendor\DataBase\DB as DataBaseDB;
 
+abstract class Model{
+    static $tableName;
+    protected $DB = null;
+    
     //Пустой конструктор
     public function __construct(){
-
     }
     
-// Пользовательские конструкторы
-    public function sConstruct($aId,$aNameClient,$aPeriod,$aSum){//Создание класса с полными данными
-        $this->id = $aId;
-        $this->NameClient = $aNameClient;
-        $this->Period = new \DateTime($aPeriod);
-        $this->Sum = $aSum;
-    }
-    public function sСonstructDate($aId,$aPeriod,$aSum){//Создание Класса с OrderBy параметром, выборка по периоду
-        $this->id = $aId;
-        $this->Period = new \DateTime($aPeriod);
-        $this->Sum = $aSum;
+    public static function All(){
     }
 }
 ?>
