@@ -1,0 +1,10 @@
+{
+    "name": "orijinx/auth",
+    "autoload": {
+        "files": [
+            "vendor/db/db.php",
+            "vendor/global/compact.php",
+            "vendor/Models/Model.php"
+        ]
+    }
+}
