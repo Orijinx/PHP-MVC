@@ -9,4 +9,6 @@ return array(
     'ec4f5a506a757679b66d8d76d24a68e0' => $vendorDir . '/db/db.php',
     '327f93748353932c73c4101aa6e19dd6' => $vendorDir . '/global/compact.php',
     'b203c142c6429e6784b38ca02c03c924' => $vendorDir . '/Models/users.php',
+    'd0350bde0ec7b657ef036657538f84ea' => $vendorDir . '/global/view.php',
+    '441e9843100cff0cc7fe787a926d9fb8' => $vendorDir . '/controllers/MainController.php',
 );

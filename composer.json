@@ -4,7 +4,9 @@
         "files": [
             "vendor/db/db.php",
             "vendor/global/compact.php",
-            "vendor/Models/users.php"
+            "vendor/Models/users.php",
+            "vendor/global/view.php",
+            "vendor/controllers/MainController.php"
         ]
     }
 }

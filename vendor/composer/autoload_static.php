@@ -10,6 +10,8 @@ class ComposerStaticInitcab57e02248c7b8e1bd63f4860bf7ea7
         'ec4f5a506a757679b66d8d76d24a68e0' => __DIR__ . '/..' . '/db/db.php',
         '327f93748353932c73c4101aa6e19dd6' => __DIR__ . '/..' . '/global/compact.php',
         'b203c142c6429e6784b38ca02c03c924' => __DIR__ . '/..' . '/Models/users.php',
+        'd0350bde0ec7b657ef036657538f84ea' => __DIR__ . '/..' . '/global/view.php',
+        '441e9843100cff0cc7fe787a926d9fb8' => __DIR__ . '/..' . '/controllers/MainController.php',
     );
 
     public static $classMap = array (

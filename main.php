@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php $compact->_GLOBAL["title"] ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- <script src="main.js"></script> -->
@@ -42,8 +42,9 @@
     <div id="test">
         <form action="/auth" method="post">
             <label for="email">Email</label>
-            <input type="email" name="emai" id="email" v-on:change="print_em" v-model:value="email">
-            <input type="password" name="password" id="pas" >
+            <input type="email" name="emai" id="email" v-on:change="checkForm" v-model:value="email">
+            <input type="password" name="password" id="pas" v-model:value="password" v-on:change="checkForm">
+            <button type="submit" class="btn btn-primary">Войти</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -54,15 +55,47 @@
     //Работаем  с данными и с DOM страницы через vue.js, это дает рекативность и удобный доступ к слушателям onclikc и т.д.
     var data = new Vue({
         el: '#test',
-        data:{
-            email:"",
-            password:"",
+        data: {
+            email: "",
+            password: "",
+            errors:[],
         },
         methods: {
-            print_em:function (){
+            print_em: function() {
                 console.log(this.email)
-            }
+            },
+            checkForm: function(e) {
+                this.errors = [];
+
+                if (!this.password) {
+                    this.errors.push('Укажите пароль.');
+                }else if (!this.validPassword(this.password)) {
+                    this.errors.push('Укажите корректный адрес электронной почты.');
+                }
+                if (!this.email) {
+                    this.errors.push('Укажите электронную почту.');
+                } else if (!this.validEmail(this.email)) {
+                    this.errors.push('Укажите корректный адрес электронной почты.');
+                }
+
+                if (!this.errors.length) {
+                    return true;
+                }
+                console.log(this.errors)
+                e.preventDefault();
+            },
+            validEmail: function(email) {
+                var re =
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            },
+            validPassword: function(pas){
+                if (pas.length >=8){
+                    return true
+                }else return false
+            },
         }
+    
     })
     </script>
 

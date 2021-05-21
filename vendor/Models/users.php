@@ -4,7 +4,6 @@ namespace vendor\Model;
 use vendor\DataBase\DB as DataBaseDB;
 
 class Users{
-    static $tableName ="USERS";
     private $DB = null;
    
     //Поля класса
@@ -26,7 +25,7 @@ class Users{
     
     public static function All(){
         $DB = new DataBaseDB;
-        $result = $DB->GetAll(Users::$tableName);
+        $result = $DB->GetAll("USERS");
         $collection = array();
        while($obj = $result->fetch_object()){
            array_push($collection, new Users($obj->id,$obj->name,$obj->email,$obj->password,$obj->remember_token));
